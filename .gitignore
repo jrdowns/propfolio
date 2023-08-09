@@ -1,0 +1,23 @@
+# Virtual environment directory
+venv/
+
+# Compiled byte code
+__pycache__/
+*.pyc
+*.pyo
+
+# Media files
+media/
+
+# Environment variables and secrets
+.env
+
+# IDE-specific files (e.g., for PyCharm or Visual Studio Code)
+.idea/
+.vscode/
+
+# Other common temporary files
+*.bak
+*.swp
+*~
+.DS_Store

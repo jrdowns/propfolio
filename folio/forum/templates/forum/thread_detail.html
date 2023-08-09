@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Forum - All Threads{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - {{ thread.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #add8e6; /* Light blue header */
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .post {
+            padding: 15px;
+            border-bottom: 1px solid #dcdcdc;
+        }
+        .post:last-child {
+            border-bottom: none;
+        }
+        .new-post-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #90d0e6; /* Light blue button */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .new-post-button:hover {
+            background-color: #85c1e9;
+        }
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #90d0e6; /* Light blue button */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-button:hover {
+            background-color: #85c1e9;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>{{ thread.title }}</h1>
+    </div>
+    <div class="container">
+        <a href="{% url 'forum:all_threads' %}" class="back-button">Back to All Threads</a>
+        {% for post in posts %}
+        <div class="post">
+            <h3>{{ post.subject }}</h3>
+            <p>By: {{ post.name }} ({{ post.email }}) | {{ post.created_at|date:"F j, Y, g:i a" }}</p>
+            <p>{{ post.body }}</p>
+        </div>
+        {% endfor %}
+        <a href="{% url 'forum:new_post' thread.id %}" class="new-post-button">Create a New Post</a>
+    </div>
+</body>
+</html>
+{% endblock %}

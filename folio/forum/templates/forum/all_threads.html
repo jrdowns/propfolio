@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}Forum - All Threads{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - All Threads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0; /* Light gray background */
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #add8e6; /* Light blue header */
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .thread {
+            padding: 15px;
+            border-bottom: 1px solid #dcdcdc;
+        }
+        .thread:last-child {
+            border-bottom: none;
+        }
+        .new-thread-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #add8e6; /* Light blue button */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .new-thread-button:hover {
+            background-color: #85c1e9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to the Forum</h1>
+    </div>
+    <div class="container">
+        {% for thread in threads %}
+        <div class="thread">
+            <h2><a href="{% url 'forum:thread_detail' thread.id %}">{{ thread.title }}</a></h2>
+            <p>Created: {{ thread.created_at|date:"F j, Y, g:i a" }}</p>
+        </div>
+        {% endfor %}
+        <a href="{% url 'forum:new_thread' %}" class="new-thread-button">Start a New Thread</a>
+    </div>
+</body>
+</html>
+{% endblock %}
