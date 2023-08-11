@@ -7,6 +7,10 @@
     <title>{% block title %}My Portfolio{% endblock %}</title>
     <style>
         /* Common styles for all pages */
+        h3 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
@@ -23,22 +27,36 @@
             padding: 20px;
             overflow: auto;
         }
-        .sidebar a {
+        /* .sidebar a {
             display: block;
             padding: 10px;
             text-decoration: none;
             color: #ffffff;
-        }
+        } */
         .main-content {
             margin-left: 220px;
             padding: 20px;
+        }
+        .app-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #56a9c5; /* Light blue button */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .app-button:hover {
+            background-color: #8eb3c0;
         }
     </style>
 </head>
 <body>
     <div class="sidebar">
         <h3>My Portfolio</h3>
-        <a href="{% url 'forum:all_threads' %}">Forum App</a>
+        <a href="{% url 'forum:all_threads' %}" class="app-button">Forum App</a>
         <!-- Add more links to other apps here -->
     </div>
     <div class="main-content">
