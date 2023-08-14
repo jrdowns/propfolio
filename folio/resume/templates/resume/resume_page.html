@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}My Resume{% endblock %}
+
+{% block content %}
+    <h1>My Apps</h1>
+    <!-- Include a short title and blurb about each app -->
+    <div>
+        <h2>Forum App</h2>
+        <p>A discussion forum with threads and posts.</p>
+    </div>
+    <!-- Add more apps as needed -->
+
+    <h1>Download My Resume</h1>
+    <a href="{% static 'resume/my_resume.pdf' %}" download>Download PDF</a>
+{% endblock %}

@@ -21,8 +21,6 @@ from forum import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('forum/', include('forum.urls', namespace='forum')),
-    # path('', views.all_threads, name='all_threads'),
-    # path('new_thread/', views.new_thread, name='new_thread'),
-    # path('thread/<int:thread_id>/', views.thread_detail, name='thread_detail'),
-    # path('thread/<int:thread_id>/new_post/', views.new_post, name='new_post'),
+    path('resume/', include('resume.urls')),
+    path('', include('resume.urls')),
 ]
